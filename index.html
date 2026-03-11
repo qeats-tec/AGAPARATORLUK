@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGAPARATORLUK | Alemdar'ın Gölgesinde</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --text-light: #e0e0e0;
+            --accent-red: #cc0000;
+            --border-grey: #444;
+            --card-bg: #1e1e1e;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace; /* Teknik ve ciddi hava */
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.6;
+            background-image: url('https://www.transparenttextures.com/patterns/dark-mosaic.png'); /* Hafif dokulu arka plan */
+        }
+
+        .header {
+            width: 100%;
+            padding: 60px 20px;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.5)), url('https://static.wikia.nocookie.net/kurtlar-vadisi/images/b/b5/Site-background-light/revision/latest?cb=20240521034254&path-prefix=tr') center center no-repeat; /* Kendi arka plan görselini buraya ekleyebilirsin */
+            background-size: cover;
+            border-bottom: 3px solid var(--accent-red);
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-red);
+            box-shadow: 0 0 15px var(--accent-red);
+        }
+
+        .header h1 {
+            font-family: 'Oswald', sans-serif; /* Daha vurucu başlıklar */
+            font-size: 4.5rem;
+            color: var(--text-light);
+            text-shadow: 0 0 20px rgba(204, 0, 0, 0.7);
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            margin-top: 15px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container {
+            max-width: 960px;
+            width: 90%;
+            padding: 50px 0;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.8rem;
+            color: var(--accent-red);
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: var(--text-light);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-grey);
+            border-left: 5px solid var(--accent-red); /* Vurgulu sol kenar */
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5), 0 0 20px rgba(204, 0, 0, 0.4);
+        }
+
+        .card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            color: var(--accent-red);
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-grey);
+            padding-bottom: 10px;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .card ul li::before {
+            content: '»'; /* Racon simgesi */
+            color: var(--accent-red);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .join-btn {
+            display: block;
+            width: fit-content;
+            margin: 50px auto 0 auto;
+            padding: 18px 50px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--text-light);
+            background: var(--accent-red);
+            border: 2px solid var(--text-light);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(204, 0, 0, 0.5);
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .join-btn:hover {
+            background: darken(var(--accent-red), 10%);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 25px rgba(204, 0, 0, 0.8), 0 0 5px var(--text-light);
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: #777;
+            text-align: center;
+            width: 100%;
+            border-top: 1px solid var(--border-grey);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>AGAPARATORLUK</h1>
+        <p>Alemdar'ın gölgesinde, racon kesilen topraklar. Bu alemde yerini almayan, yerini bilmez.</p>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Hakkımızda</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Biz Kimiz?</h3>
+                <p>Biz, sırtını sağlam yere dayayanların, sözü geçenlerin ve raconu bilenlerin topluluğuyuz. Bu sunucu, sadece bir Discord kanalı değil, Alemdar'ın mirasını taşıyanların mabedidir.</p>
+            </div>
+            <div class="card">
+                <h3>Vazgeçilmez İlkelerimiz</h3>
+                <p>Alemde racon neyse, bizde de o. Doğruluk, cesaret ve sadakat bizim için kuru bir laf değil, yaşam biçimidir. Burada yer almak isteyen, bu ilkelere biat eder.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 80px;">Racon Kuralları</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Hiyerarşi ve Saygı</h3>
+                <ul>
+                    <li>Büyüğün sözü, kanundur. Saygıda kusur eden, haddini bilmeyenin yeri burası değildir.</li>
+                    <li>Rütbeler boşa verilmez. Yetkililere ve tecrübelilere itaat, nizamı korur.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Dürüstlük ve Adalet</h3>
+                <ul>
+                    <li>Yalanın ve dolanın yeri yoktur. Konuştuğun sözün arkasında duracaksın.</li>
+                    <li>Haksızlığa göz yuman, haksızlığa ortak olur. Adalet bizim pusulamızdır.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Disiplin ve Birlik</h3>
+                <ul>
+                    <li>Kavga ve nifak tohumu ekmek, kendi sonunu hazırlamaktır. Birlik, en büyük gücümüzdür.</li>
+                    <li>Spam ve reklam peşinde koşanlar, alemden men edilir. Burası pazar yeri değil.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Sözün Değeri</h3>
+                <ul>
+                    <li>Boş laf, kuru gürültü bu alemde geçmez. Sözün ağırlığı olacak.</li>
+                    <li>Sır tutmayı bilmeyen, kendine de faydası olmayandır. Her konuşulan burada kalır.</li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="DISCORD_DAVET_LINKI_BURAYA" class="join-btn">BU ALEMDE YERİNİ AL</a>
+    </div>
+
+    <footer>
+        &copy; 2026 AGAPARATORLUK. Racon Bizimdir, Alem Bizimdir.
+    </footer>
+
+</body>
+</html>
